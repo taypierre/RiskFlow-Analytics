@@ -38,29 +38,30 @@ To run RiskFlow Analytics locally, follow these steps:
 
 **1. Clone the repository**
 ```bash
-git clone [https://github.com/yourusername/RiskFlow-Analytics.git](https://github.com/yourusername/RiskFlow-Analytics.git)
+git clone https://github.com/yourusername/RiskFlow-Analytics.git
 cd RiskFlow-Analytics
-    ```
+```
 
 **2. Create and activate a virtual environment**
-*   **Mac/Linux:**
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate
-    ```
 
-*   **Windows:**
-    ```bash
-    python -m venv venv
-    venv\Scripts\activate
-    ```
+*Mac/Linux:*
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+*Windows:*
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
 
 **3. Install the required dependencies**
 ```bash
 pip install -r requirements.txt
-    ```
+```
 
 **4. Run the application**
 ```bash
 streamlit run app.py
-    ```
+```
