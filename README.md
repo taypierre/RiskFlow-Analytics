@@ -2,25 +2,24 @@
 
 ### Dynamic GARCH-CVaR Forecaster for Commodity Markets
 
-Traditional financial risk models often assume markets are static and calm, blinding them to sudden crashes. **RiskFlow Analytics** is a dynamic, full-stack financial risk dashboard designed to fix this. It builds a smarter, reactive risk engine that detects market shocks in real-time and translates complex mathematical data into highly accessible, immediately readable metrics.
+Most financial risk models assume the market is always calm. That works fine—until it doesn't. 
 
-At its core, this engine answers a single, critical question for an investor: **"How much money could I realistically lose tomorrow?"**
+**RiskFlow Analytics** is a financial risk dashboard I built to fix this blind spot. Instead of relying on static averages, it uses a dynamic risk engine to detect market panic in real time. Ultimately, it takes complex market data and answers one crucial question: **"How much money could I actually lose tomorrow?"**
 
 ---
 
-## 🚀 What This Project Does
+## 🚀 How It Works
 
-RiskFlow Analytics automates three main tasks:
+*   **Live Data Ingestion:** Pulls the latest daily pricing for volatile commodities like Crude Oil (CL=F), Gold (GC=F), and Silver (SI=F) using `yfinance`.
+*   **Dynamic Volatility Forecasting:** Runs a **GARCH(1,1)** algorithm that actively tracks market momentum. If the market spikes today, the model instantly updates to forecast higher turbulence for tomorrow.
+*   **Value at Risk (VaR 99%):** Establishes a mathematical line in the sand. (*e.g., We are 99% confident our daily losses will not exceed this percentage.*)
+*   **Conditional VaR (CVaR 99%):** Calculates the nightmare scenario. (*e.g., If a 1-in-100 market disaster actually happens, this is the average expected loss.*)
 
-*   **Live Data Ingestion:** Connects to live market APIs (via `yfinance`) to pull the latest daily pricing for volatile commodities like Crude Oil (CL=F), Gold (GC=F), and Silver (SI=F).
-*   **Dynamic Volatility Forecasting:** Instead of using simple historical averages, it runs a recursive algorithm (**GARCH(1,1)**) that actively tracks market panic. If the market spikes today, the engine instantly forecasts higher turbulence for tomorrow.
-*   **Downside Risk Calculation:** It calculates precise "lines in the sand" for potential losses using Filtered Historical Simulation:
-    *   **Value at Risk (VaR 99%):** The maximum expected loss under normal market conditions. (e.g., *We are 99% sure our losses tomorrow will not exceed this percentage.*)
-    *   **Conditional VaR (CVaR 99%):** The average expected loss if a true 1-in-100 market disaster occurs. (e.g., *If we cross the VaR threshold, this is how bad the nightmare scenario gets.*)
+## 💡 Why Build This?
 
-## 💡 The Value It Brings
+The biggest problem with quantitative finance isn't the math—it's how the risk is communicated. 
 
-The quantitative finance industry often struggles to make risk readable. The core value of RiskFlow Analytics is bridging robust, algorithm-heavy architecture with a clean visual interface. By framing graduate-level mathematics within an intuitive UI, this tool ensures that anyone—from portfolio managers to retail investors—can immediately understand their true financial exposure at a glance, without needing to decipher raw data arrays or complex equations.
+I built RiskFlow Analytics to take heavy, graduate-level mathematics and package them into a clean, readable user interface. It takes raw arrays and GARCH models and turns them into straightforward metrics so that anyone, from a portfolio manager to a retail investor, can instantly understand their true financial exposure at a glance.
 
 ---
 
@@ -41,3 +40,26 @@ To run RiskFlow Analytics locally, follow these steps:
 ```bash
 git clone [https://github.com/yourusername/RiskFlow-Analytics.git](https://github.com/yourusername/RiskFlow-Analytics.git)
 cd RiskFlow-Analytics
+
+
+**2. Create and activate a virtual environment**
+*   **Mac/Linux:**
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+*   **Windows:**
+    ```bash
+    python -m venv venv
+    venv\Scripts\activate
+    ```
+
+**3. Install the required dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+**4. Run the application**
+```bash
+streamlit run app.py
+```
