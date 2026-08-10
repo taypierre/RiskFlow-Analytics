@@ -6,7 +6,7 @@ def calculate_conditional_var(historical_returns: pd.Series, forecasted_vol: flo
     Calculates the Value at Risk (VaR) and Expected Shortfall (CVaR) 
     scaled to the GARCH volatility forecast.
     
-    alpha=0.01 represents a 99% confidence interval.
+    alpha=0.01 = 99% confidence interval.
     """
     # Find the baseline historical volatility
     historical_vol = historical_returns.std()

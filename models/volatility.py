@@ -23,7 +23,7 @@ def forecast_garch_volatility(returns: pd.Series) -> float:
     
     next_day_variance = forecasts.variance.iloc[-1, 0]
     
-    # Volatility is the square root of variance (descaled back to normal decimal)
+    # Volatility is the square root of variance
     next_day_vol = np.sqrt(next_day_variance) / 100
     
     return next_day_vol
